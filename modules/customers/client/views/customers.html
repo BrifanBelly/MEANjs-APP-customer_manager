@@ -1,0 +1,61 @@
+<section>
+    <div class="col-md-6">
+        <form name="vm.form.customerForm" class="form-horizontal well" ng-submit="vm.save(vm.form.customerForm.$valid)" novalidate>
+            <fieldset>
+                <div class="form-group" show-errors>
+                    <label class="control-label" for="Fname">Customer form</label>
+                    <input name="name" type="text" ng-model="vm.customer.Fname" id="Fname" class="form-control" placeholder="First Name" required>
+                    <div ng-messages="vm.form.customerForm.name.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Customer name is required.</p>
+                    </div>
+                    </div>
+                <div class="form-group"> <input name="Sname" type="text" ng-model="vm.customer.Sname" id="Sname" class="form-control" placeholder="Surname" required></div>
+                <div class="form-group"> <input name="phone" type="text" ng-model="vm.customer.phone" id="Pno" class="form-control" placeholder="Phone number" required></div>
+                <div class="form-group"><input name="SA" type="text" ng-model="vm.customer.sa" id="Street" class="form-control" placeholder="Street Adress" required></div>
+                    <div class="form-group"><input name="city" type="text" ng-model="vm.customer.city" id="City" class="form-control" placeholder="City" required></div>
+                <div class="form-group">  <input name="state" type="text" ng-model="vm.customer.state" id="State" class="form-control" placeholder="State" required></div>
+                <div class="form-group">  <input name="zip" type="text" ng-model="vm.customer.zip" id="Zip" class="form-control" placeholder="Zip code" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">{{vm.customer._id ? 'Update' : 'Create'}}</button>
+                </div>
+                <div ng-show="vm.error" class="text-danger">
+                    <strong ng-bind="vm.error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <div id="customer-table" style="height: 400px;">
+            <table class="table table-hover">
+                <thead>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th><i class="glyphicon glyphicon-user"></i>
+                </th>
+                <th><i class="glyphicon glyphicon-inbox"></i>
+                </th>
+                </thead>
+                <tr ng-repeat="customer in vm.customers | limitTo: vm.currentPage*5 | limitTo: -5">
+                    <td>{{customer.Sname}}, {{customer.Fname}}</td>
+                    <td>{{customer.phone}}</td>
+                    <td>{{customer.sa}}
+                        <br> {{customer.city}}, {{customer.state}}
+                        <br> {{customer.zip}}
+                    </td>
+                    <td><a data-ui-sref="customers.edit({ customerId: customer._id })"><i title="Edit" class="glyphicon glyphicon-pencil" ></i></a>
+                    </td>
+                    <td>
+                       <a > <i title="Delete" class="glyphicon glyphicon-trash" ng-click="vm.remove(customer)"></i></a>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <pagination total-items="vm.customers.length" ng-model="vm.currentPage" items-per-page="vm.pageSize"></pagination>
+
+    </div>
+
+</section>

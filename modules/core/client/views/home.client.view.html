@@ -1,0 +1,51 @@
+<section ng-controller="HomeController">
+    <div class="col-md-12">
+<h1 id="Customer_title ">Customer Manager</h1>
+
+    This app has been developed on MEANjs Framework.It helps the user to <b>create</b>,<b>edit</b>,<b>remove</b> and <b>store</b> customres.
+    </div>
+    <div class="col-md-6">
+        <br>
+    <br>
+    <ul id="Tech_used">
+        <li><h3>Backend Technologies used </h3>
+        <ul>
+            <li><b>NODE.JS</b>&nbspruns on the server side</li>
+        </ul>
+        </li>
+        <li><h3>Frontend Technologies used </h3>
+            <ul>
+                <li><b>Anular.js</b>&nbsp&nbsp manages the App on the client side</li>
+                <li><b>Anular-routes.js</b>&nbsp&nbsp manages the client routes</li>
+                <li><b>Anular-ui.js,Bootstrap</b>&nbsp&nbsp For user interface display</li>
+            </ul>
+        </li>
+        <li><h3>Features </h3>
+            <ul>
+                <li><b>Add articles</b>&nbsp&nbsp Any user (even without an account) can post articles <br/>
+                which are then verified by the Admin</li>
+                <li><b>Global Chat</b>&nbsp&nbspThe chat feature uses socket.io to enable realtime chat exprience</li>
+                <li><b>Customers</b>&nbsp&nbspCan be only accessed by <i style="color: slategrey">registered Users</i>&nbspIt allowes the users to create,remove and edit a customer</li>
+                <li><b>Todo</b>&nbsp&nbspCan be only accessed by <i style="color: slategrey">registered Users</i>&nbspIt allowes the users to create a todo list</li>
+            </ul>
+        </li>
+        <li>
+            For testing:<br/>
+            username: user<br/>
+            password: user<br/>
+        </li>
+    </ul>
+        </div>
+    <div class="col-md-6">
+        <div style="height: 605px; margin-top:10%">
+            <carousel active="active" interval="myInterval" no-wrap="noWrapSlides" style="height:60%">
+                <slide ng-repeat="slide in slides" >
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <p><i style="color:darkseagreen">{{slide.text}}</i></p>
+                    </div>
+                </slide>
+            </carousel>
+            </div>
+    </div>
+ </section>
